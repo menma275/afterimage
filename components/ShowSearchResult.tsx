@@ -33,16 +33,9 @@ export default function ShowSearchResult() {
                 id: item.id,
                 title: category === 'movie' ? item.original_title : item.original_name,
             }));
-            if(category === 'movie'){
-                setMovies(movieData);
-                // original_title
-            }else if(category === 'tv'){
-                setTvs(movieData);
-                // original_name
-            }else if(category === 'person'){
-                setPersons(movieData);
-                // original_name
-            }
+            if(category === 'movie') setMovies(movieData);
+            else if(category === 'tv') setTvs(movieData);
+            else if(category === 'person') setPersons(movieData);
             console.log(movieData);
         }catch(error){
             console.error(error);
@@ -68,7 +61,7 @@ export default function ShowSearchResult() {
             {lists.map((list, index) => (
                 list && list.length > 0 && (
                     <>
-                    <h1 className="text-lg font-bold mt-4">{index === 0 ? 'Movies' : index === 1 ? 'TV Shows' : 'People'}</h1>
+                    <h1 className="text-lg font-bold mt-4 mb-2 ml-2">{index === 0 ? 'Movies' : index === 1 ? 'TV Shows' : 'People'}</h1>
                     <ul className="flex flex-wrap gap-3">
                         {list.map((item) => (
                             <li key={item.id}>
